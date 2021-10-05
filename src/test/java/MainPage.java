@@ -1,4 +1,5 @@
 import com.codeborne.selenide.SelenideElement;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -22,8 +23,8 @@ public class MainPage extends LoadableComponent<MainPage> {
 
     public GroupPage openGroups() {
         SelenideElement selenideElement = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/a[3]");
-        String href = selenideElement.getAttribute("href");
+        selenideElement.click();
 
-        return new GroupPage(href);
+        return new GroupPage();
     }
 }
