@@ -29,8 +29,5 @@ public class GroupPage extends LoadableComponent<GroupPage> {
 
         myGroupText.shouldBe(Condition.exist);
         myGroupText.shouldBe(Condition.visible);
-//        String text = myGroupText.shouldBe(Condition.visible).text();
-        Assertions.assertTrue(myGroupText.exists());
-//        Assertions.assertEquals("Актуально", text);
     }
 }
