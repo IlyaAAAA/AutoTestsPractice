@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class GroupTest {
+public class GroupTest {
+
+    private GroupPage groupPage = new GroupPage();
+
 }

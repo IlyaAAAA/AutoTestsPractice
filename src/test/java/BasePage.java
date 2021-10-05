@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public class BasePage {
+public abstract class BasePage {
+    public abstract boolean isLoaded();
+//    public abstract void open();
 }
