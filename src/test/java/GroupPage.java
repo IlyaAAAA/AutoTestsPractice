@@ -1,15 +1,22 @@
 import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
-public class GroupPage extends BasePage {
+public class GroupPage extends LoadableComponent<GroupPage> {
+    public GroupPage() {
+    }
 
     public GroupPage(String href) {
         Selenide.open(href);
     }
 
 
+    @Override
+    protected void load() {
+
+    }
 
     @Override
-    public boolean isLoaded() {
-        return false;
+    protected void isLoaded() throws Error {
+
     }
 }

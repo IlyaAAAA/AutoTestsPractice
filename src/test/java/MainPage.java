@@ -19,21 +19,11 @@ public class MainPage extends LoadableComponent<MainPage> {
     protected void isLoaded() throws Error {
         Assertions.assertTrue(name.exists(), "Main page was not loaded");
     }
-public class MainPage extends BasePage {
-    public SelenideElement openGroups() {
+
+    public GroupPage openGroups() {
         SelenideElement selenideElement = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/a[3]");
         String href = selenideElement.getAttribute("href");
 
-        return GroupPage(href);
-    }
-
-    @Override
-    public boolean isLoaded() {
-        return false;
-    }
-
-    @Override
-    public void open() {
-
+        return new GroupPage(href);
     }
 }
