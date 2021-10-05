@@ -1,15 +1,11 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPageTest {
-    MainPage mainPage = new MainPage();
+    AuthorizePage authorizePage = new AuthorizePage();
 
     @BeforeAll
     public static void setUpAll() {
@@ -18,32 +14,16 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUp() {
-        open("https://www.jetbrains.com/");
+        open("https://www.ok.ru/");
     }
 
     @Test
-    public void search() {
-        mainPage.searchButton.click();
+    public void login() {
+        authorizePage.loginText.sendKeys("89966976233");
+        authorizePage.passwordText.sendKeys("veryhardpassword");
+        authorizePage.loginButton.click();
 
-        $("[data-test='search-input']").sendKeys("Selenium");
-        $("button[data-test='full-search-button']").click();
-
-        $("input[data-test='search-input']").shouldHave(attribute("value", "Selenium"));
-    }
-
-    @Test
-    public void toolsMenu() {
-        mainPage.toolsMenu.hover();
-
-        $("div[data-test='menu-main-popup-content']").shouldBe(visible);
-    }
-
-    @Test
-    public void navigationToAllTools() {
-        mainPage.seeAllToolsButton.click();
-
-        $("#products-page").shouldBe(visible);
-
-        assertEquals("All Developer Tools and Products by JetBrains", Selenide.title());
+        MainPage mainPage = new MainPage();
+        mainPage.isLoaded();
     }
 }
