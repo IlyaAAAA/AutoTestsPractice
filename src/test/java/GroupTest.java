@@ -16,14 +16,12 @@ public class GroupTest {
     @Test
     public void testPage() {
         AuthorizePage authorizePage = new AuthorizePage();
-        MainPage mainPage = authorizePage.login();
+        authorizePage.isLoaded();
 
+        MainPage mainPage = authorizePage.login();
         mainPage.isLoaded();
 
-
         GroupPage groupPage = mainPage.openGroups();
-
-
         groupPage.isLoaded();
     }
 }
