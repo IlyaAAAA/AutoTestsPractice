@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.AuthorizePage;
@@ -16,6 +18,11 @@ public class GroupTest {
     @BeforeEach
     public void setUp() {
         open("https://www.ok.ru/");
+    }
+
+    @AfterEach
+    public void close() {
+        Selenide.closeWindow();
     }
 
     @Test

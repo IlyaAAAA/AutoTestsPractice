@@ -1,24 +1,16 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.AuthorizePage;
 import pages.MainPage;
-import utils.UserInfo;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class MainPageTest {
+public class AuthTest {
     AuthorizePage authorizePage = new AuthorizePage();
-
-    @BeforeAll
-    public static void setUpAll() {
-        Configuration.browserSize = "1280x800";
-    }
 
     @BeforeEach
     public void setUp() {
@@ -32,11 +24,7 @@ public class MainPageTest {
 
     @Test
     public void login() {
-        authorizePage.loginText.sendKeys(UserInfo.phone);
-        authorizePage.passwordText.sendKeys(UserInfo.password);
-        authorizePage.loginButton.click();
-
-        MainPage mainPage = new MainPage();
+        MainPage mainPage = authorizePage.login();
         mainPage.isLoaded();
     }
 }
