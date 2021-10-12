@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public class MyGroups {
+class MyGroups {
     private ElementsCollection myGroups;
 
     public MyGroups() {
