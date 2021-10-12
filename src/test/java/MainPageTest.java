@@ -1,8 +1,9 @@
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class MainPageTest {
     AuthorizePage authorizePage = new AuthorizePage();
@@ -19,8 +20,8 @@ public class MainPageTest {
 
     @Test
     public void login() {
-        authorizePage.loginText.sendKeys("89966976233");
-        authorizePage.passwordText.sendKeys("veryhardpassword");
+        authorizePage.loginText.sendKeys(UserInfo.phone);
+        authorizePage.passwordText.sendKeys(UserInfo.password);
         authorizePage.loginButton.click();
 
         MainPage mainPage = new MainPage();

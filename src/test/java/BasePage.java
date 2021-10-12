@@ -1,4 +1,3 @@
-//public abstract class BasePage {
-//    public abstract boolean isLoaded();
-////    public abstract void open();
-//}
+public abstract class BasePage {
+    public abstract boolean isLoaded();
+}
