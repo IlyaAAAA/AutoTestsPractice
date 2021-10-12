@@ -1,3 +1,5 @@
+package pages;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.ui.LoadableComponent;
@@ -23,7 +25,7 @@ public class AuthorizePage extends LoadableComponent<AuthorizePage> {
     }
 
     @Override
-    protected void isLoaded() throws Error {
+    public void isLoaded() throws Error {
 
     }
 }
