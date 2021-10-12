@@ -5,19 +5,21 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.AuthorizePage;
+import pages.MainPage;
 import pages.groups.Group;
 import pages.groups.GroupsPage;
-import pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class GroupTest {
 
     private GroupsPage groupPage = new GroupsPage();
+    private AuthorizePage authorizePage = new AuthorizePage();
 
     @BeforeEach
     public void setUp() {
         open("https://www.ok.ru/");
+        authorizePage.login();
     }
 
     @AfterEach
@@ -27,10 +29,7 @@ public class GroupTest {
 
     @Test
     public void testPage() {
-        AuthorizePage authorizePage = new AuthorizePage();
-        authorizePage.isLoaded();
-
-        MainPage mainPage = authorizePage.login();
+        MainPage mainPage = new MainPage();
         mainPage.isLoaded();
 
         GroupsPage groupsPage = mainPage.openGroups();

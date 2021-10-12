@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.AuthorizePage;
 import pages.MainPage;
-import utils.UserInfo;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -23,6 +22,7 @@ public class MainPageTest {
     @BeforeEach
     public void setUp() {
         open("https://www.ok.ru/");
+        authorizePage.login();
     }
 
     @AfterEach
@@ -32,10 +32,6 @@ public class MainPageTest {
 
     @Test
     public void login() {
-        authorizePage.loginText.sendKeys(UserInfo.phone);
-        authorizePage.passwordText.sendKeys(UserInfo.password);
-        authorizePage.loginButton.click();
-
         MainPage mainPage = new MainPage();
         mainPage.isLoaded();
     }

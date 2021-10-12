@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class AuthorizePage extends LoadableComponent<AuthorizePage> {
-    public SelenideElement loginText = $x("//*[@id=\"field_email\"]");
-    public SelenideElement passwordText = $x("//*[@id=\"field_password\"]");
-    public SelenideElement loginButton = $x("//*[@id=\"anonymPageContent\"]/div[2]/div/div[3]/form/div[5]/div[1]/input");
+    private SelenideElement loginText = $x("//*[@id=\"field_email\"]");
+    private SelenideElement passwordText = $x("//*[@id=\"field_password\"]");
+    private SelenideElement loginButton = $x("//*[@id=\"anonymPageContent\"]/div[2]/div/div[3]/form/div[5]/div[1]/input");
 
     public MainPage login() {
         loginText.sendKeys("89966976233");
