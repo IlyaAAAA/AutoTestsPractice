@@ -6,8 +6,9 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class GroupPage extends LoadableComponent<GroupPage> {
+
     public GroupPage() {
-        super();
+
     }
 
     public GroupPage(String href) {
@@ -17,7 +18,7 @@ public class GroupPage extends LoadableComponent<GroupPage> {
 
     @Override
     protected void load() {
-
+        Selenide.open("https://ok.ru/profile/" + UserInfo.id + "/groups");
     }
 
     @Override

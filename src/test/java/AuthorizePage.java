@@ -19,7 +19,7 @@ public class AuthorizePage extends LoadableComponent<AuthorizePage> {
 
     @Override
     protected void load() {
-
+        Selenide.open("https://ok.ru/");
     }
 
     @Override

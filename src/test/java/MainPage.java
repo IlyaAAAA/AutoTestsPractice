@@ -1,5 +1,6 @@
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -13,10 +14,14 @@ public class MainPage extends LoadableComponent<MainPage> {
 
     @Override
     protected void load() {
+        Selenide.open("https://ok.ru/");
     }
 
     @Override
     protected void isLoaded() throws Error {
+        name.should(Condition.exist);
+        name.should(Condition.visible);
+
         Assertions.assertTrue(name.exists(), "Main page was not loaded");
     }
 
