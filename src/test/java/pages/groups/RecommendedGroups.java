@@ -22,7 +22,6 @@ class RecommendedGroups extends LoadableComponent<RecommendedGroups> {
     @Override
     public void isLoaded() throws Error {
         groups.get(0).shouldBe(Condition.visible);
-        groups.get(0).should(Condition.exist);
     }
 
     public Group clickJoinFirstGroup() {

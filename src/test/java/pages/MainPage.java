@@ -22,7 +22,6 @@ public class MainPage extends LoadableComponent<MainPage> {
 
     @Override
     public void isLoaded() throws Error {
-        name.should(Condition.exist);
         name.should(Condition.visible);
 
         Assertions.assertTrue(name.exists(), "Main page was not loaded");
@@ -30,6 +29,9 @@ public class MainPage extends LoadableComponent<MainPage> {
 
     public GroupsPage openGroups() {
         SelenideElement selenideElement = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/a[3]");
+        SelenideElement text = selenideElement.$x("div");
+        String string = text.text();
+//        Assertions.assertEquals( "Группы", string);
         selenideElement.click();
 
         return new GroupsPage();

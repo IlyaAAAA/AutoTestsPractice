@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import pages.Reloadable;
-import utils.UserInfo;
+import utils.Bot;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -17,23 +17,18 @@ public class GroupsPage extends LoadableComponent<GroupsPage> implements Reloada
     public GroupsPage() {
     }
 
-    public GroupsPage(String href) {
-        Selenide.open(href);
-    }
-
-
     @Override
     protected void load() {
-        Selenide.open("https://ok.ru/profile/" + UserInfo.id + "/groups");
+        Selenide.open("https://ok.ru/profile/" + Bot.id + "/groups");
     }
 
     @Override
     public void isLoaded() throws Error {
         SelenideElement myGroupText = $x("//*[@id=\"hook_Block_PopularGroupsListBlock\"]/div/div/div[1]/div");
 
-        myGroupText.shouldBe(Condition.exist);
         myGroupText.shouldBe(Condition.visible);
 
+        //проверять isLoaded
         recommendedGroups = new RecommendedGroups();
         myGroups = new MyGroups();
     }
@@ -46,11 +41,13 @@ public class GroupsPage extends LoadableComponent<GroupsPage> implements Reloada
         myGroups = new MyGroups();
     }
 
+    //
     public Group joinFirstGroupFromActual() {
         Group group = recommendedGroups.clickJoinFirstGroup();
+
         return group;
     }
-
+//не работаем сдругими пейдждами в рамках одного пейджа
     public void checkGroupInMyGroups(Group group) {
         boolean isExist = myGroups.isExist(group);
 

@@ -1,6 +1,6 @@
 package utils;
 
-public class UserInfo {
+public class Bot {
     public static final String phone = "89966976233";
     public static final String password = "veryhardpassword";
     public static final String id = "580385969263";
