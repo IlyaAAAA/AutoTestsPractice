@@ -2,10 +2,11 @@ package pages.groups;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import pages.BasicPage;
+
+import static com.codeborne.selenide.Selenide.$$;
 
 public class RecommendedGroups extends BasicPage {
 
@@ -17,7 +18,7 @@ public class RecommendedGroups extends BasicPage {
     private ElementsCollection groups;
 
     public RecommendedGroups() {
-        this.groups = Selenide.$$(By.className(RECOMMENDED_GROUPS_LOCATOR));
+        this.groups = $$(By.className(RECOMMENDED_GROUPS_LOCATOR)).shouldBe();
     }
 
     public Group clickJoinFirstGroup() {
