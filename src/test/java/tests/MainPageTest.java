@@ -6,8 +6,7 @@ import pages.MainPage;
 public class MainPageTest extends BasicTest {
 
     @Test
-    public void login() {
-        MainPage mainPage = new MainPage();
-        mainPage.isLoaded();
+    public void openMainPage() {
+        new MainPage();
     }
 }

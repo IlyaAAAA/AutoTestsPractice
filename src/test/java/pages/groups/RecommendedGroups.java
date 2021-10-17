@@ -5,29 +5,28 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.LoadableComponent;
+import pages.BasicPage;
 
-class RecommendedGroups extends LoadableComponent<RecommendedGroups> {
+public class RecommendedGroups extends BasicPage {
+
+    private static final String RECOMMENDED_GROUPS_LOCATOR = "recommended-group";
+    private static final String RECOMMENDED_GROUP_JOIN_BUTTON_LOCATOR = "group-join_btn";
+    private static final String RECOMMENDED_GROUP_NAME_LOCATOR = "group-name-link";
+    private static final String RECOMMENDED_GROUPS_MEMBERS_LOCATOR = "lp-t";
+
     private ElementsCollection groups;
 
     public RecommendedGroups() {
-        this.groups = Selenide.$$(By.className("recommended-group"));
-    }
-
-    @Override
-    protected void load() {
-
-    }
-
-    @Override
-    public void isLoaded() throws Error {
-        groups.get(0).shouldBe(Condition.visible);
+        this.groups = Selenide.$$(By.className(RECOMMENDED_GROUPS_LOCATOR));
     }
 
     public Group clickJoinFirstGroup() {
-        SelenideElement joinButton = groups.get(0).$(By.className("group-join_btn"));
-        SelenideElement nameBlock = groups.get(0).$(By.className("group-name-link"));
-        SelenideElement members = groups.get(0).$(By.className("lp-t"));
+
+        SelenideElement firstGroup = groups.get(0);
+
+        SelenideElement joinButton = firstGroup.$(By.className(RECOMMENDED_GROUP_JOIN_BUTTON_LOCATOR)).shouldBe(Condition.visible);
+        SelenideElement nameBlock = firstGroup.$(By.className(RECOMMENDED_GROUP_NAME_LOCATOR)).shouldBe(Condition.visible);
+        SelenideElement members = firstGroup.$(By.className(RECOMMENDED_GROUPS_MEMBERS_LOCATOR)).shouldBe(Condition.visible);
 
         joinButton.click();
 

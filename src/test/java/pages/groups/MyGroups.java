@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-class MyGroups {
+public class MyGroups {
     private ElementsCollection myGroups;
 
     public MyGroups() {
@@ -14,7 +14,7 @@ class MyGroups {
     }
 
 
-    public boolean isExist(Group group) {
+    public boolean isGroupExist(Group group) {
         for (SelenideElement myGroup : myGroups) {
             SelenideElement image = myGroup.$(By.className("photo_img"));
             String name = image.attr("alt");

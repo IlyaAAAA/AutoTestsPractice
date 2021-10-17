@@ -9,30 +9,26 @@ import pages.groups.GroupsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class MainPage extends LoadableComponent<MainPage> {
-    private final SelenideElement name = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/a[1]/div");
+public class MainPage extends BasicPage {
+    private static final String NAME_LOCATOR = "//*[@id=\"hook_Block_Navigation\"]/div/div/a[1]/div";
+    private static final String GROUP_LOCATOR = "//*[@data-l='t,userAltGroup']";
+
+    private final SelenideElement name = $x(NAME_LOCATOR);
 
     public MainPage() {
+        super();
     }
 
-    @Override
-    protected void load() {
-        Selenide.open("https://ok.ru/");
-    }
-
-    @Override
-    public void isLoaded() throws Error {
-        name.should(Condition.visible);
-
-        Assertions.assertTrue(name.exists(), "Main page was not loaded");
-    }
+//    @Override
+//    protected boolean isLoaded() {
+//        name.shouldBe(Condition.visible);
+//
+//        Assertions.assertTrue(name.exists(), "Main page was not loaded");
+//        return true;
+//    }
 
     public GroupsPage openGroups() {
-        SelenideElement selenideElement = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/a[3]");
-        SelenideElement text = selenideElement.$x("div");
-        String string = text.text();
-//        Assertions.assertEquals( "Группы", string);
-        selenideElement.click();
+        $x(GROUP_LOCATOR).shouldBe(Condition.visible).click();
 
         return new GroupsPage();
     }

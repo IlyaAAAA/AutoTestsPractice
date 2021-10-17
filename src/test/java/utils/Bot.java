@@ -1,7 +1,7 @@
 package utils;
 
 public class Bot {
-    public static final String phone = "89966976233";
-    public static final String password = "veryhardpassword";
-    public static final String id = "580385969263";
+    public final String phone = "89966976233";
+    public final String password = "veryhardpassword";
+    public final String id = "580385969263";
 }
