@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class AuthorizePage extends BasicPage {
 
-    private static final String LOGIN_INPUT_LOCATOR = "//*[@id='field_email']";
-    private static final String PASSWORD_INPUT_LOCATOR = "//*[@id='field_password']";
-    private static final String LOGIN_BUTTON_LOCATOR = "//*[@id='anonymPageContent']/div[2]/div/div[3]/form/div[5]/div[1]/input";
+    private static final String LOGIN_INPUT_LOCATOR = "//*[type='text' and @name='st.email' or @id='field_email']";
+    private static final String PASSWORD_INPUT_LOCATOR = "//*[@type='password' and @name='st.password' or @id='field_password']";
+    private static final String LOGIN_BUTTON_LOCATOR = "//*[contains(@value, 'Войти') and @type='submit']";
 
     private final SelenideElement loginText = $x(LOGIN_INPUT_LOCATOR);
     private final SelenideElement passwordText = $x(PASSWORD_INPUT_LOCATOR);

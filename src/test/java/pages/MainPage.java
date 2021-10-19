@@ -1,19 +1,17 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.support.ui.LoadableComponent;
 import pages.groups.GroupsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MainPage extends BasicPage {
-    private static final String NAME_LOCATOR = "//*[@id=\"hook_Block_Navigation\"]/div/div/a[1]/div";
+    private static final String NAME_LOCATOR = "//*[@data-l='t,userPage']";
     private static final String GROUP_LOCATOR = "//*[@data-l='t,userAltGroup']";
-
-    private final SelenideElement name = $x(NAME_LOCATOR);
+    private static final String GROUP_TEXT_LOCATOR = "child::*[@class='tico null']";
+    private static final String LEFT_NAVIGATION_BAR_LOCATOR = "//*[@class='nav-side __navigation __user-main']";
 
     public MainPage() {
         super();
@@ -28,7 +26,14 @@ public class MainPage extends BasicPage {
 //    }
 
     public GroupsPage openGroups() {
-        $x(GROUP_LOCATOR).shouldBe(Condition.visible).click();
+        $x(LEFT_NAVIGATION_BAR_LOCATOR).shouldBe(Condition.visible);
+        $x(NAME_LOCATOR).shouldBe(Condition.visible);
+        SelenideElement group = $x(GROUP_LOCATOR).shouldBe(Condition.visible);
+
+        String groupText = group.$x(GROUP_TEXT_LOCATOR).text();
+        Assertions.assertEquals(groupText, "Группы");
+
+        group.click();
 
         return new GroupsPage();
     }

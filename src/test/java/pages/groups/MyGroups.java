@@ -2,22 +2,25 @@ package pages.groups;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.$$x;
 
 public class MyGroups {
-    private ElementsCollection myGroups;
+    private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_list']";
+    private static final String IMAGE_GROUP_LOCATOR = ".//*[@class='photo_img']";
+    private static final String ATTRIBUTE_WITH_NAME = "alt";
+
+    private final ElementsCollection myGroups;
 
     public MyGroups() {
-        this.myGroups = $$(By.className("scroll-slider_list"));
+        this.myGroups = $$x(MY_GROUPS_LOCATOR).shouldBe();
     }
 
 
     public boolean isGroupExist(Group group) {
         for (SelenideElement myGroup : myGroups) {
-            SelenideElement image = myGroup.$(By.className("photo_img"));
-            String name = image.attr("alt");
+            SelenideElement image = myGroup.$x(IMAGE_GROUP_LOCATOR);
+            String name = image.attr(ATTRIBUTE_WITH_NAME);
 
             if (name.compareTo(group.name) == 0) {
                 return true;
