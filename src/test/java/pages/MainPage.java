@@ -15,10 +15,6 @@ public class MainPage extends BasicPage {
 
     private final SelenideElement name = $x(LEFT_NAVIGATION_BAR_LOCATOR);
 
-    public MainPage() {
-        super();
-    }
-
     @Override
     public boolean isLoaded() {
         name.shouldBe(Condition.visible);

@@ -11,11 +11,11 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class BasicTest {
 
-    private static final String SITE_LINK = "https://www.ok.ru/";
+    private static final String MAIN_URL = "https://www.ok.ru/";
 
     @BeforeEach
     public void setUp() {
-        open(SITE_LINK);
+        open(MAIN_URL);
 
         AuthorizePage authorizePage = new AuthorizePage(new Bot());
         authorizePage.login();
