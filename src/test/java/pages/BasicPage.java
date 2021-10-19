@@ -8,5 +8,5 @@ public abstract class BasicPage {
 //        Assertions.assertTrue(isLoaded());
     }
 
-//    protected abstract boolean isLoaded();
+    public abstract boolean isLoaded();
 }

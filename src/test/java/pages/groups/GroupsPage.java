@@ -21,7 +21,7 @@ public class GroupsPage extends BasicPage implements Reloadable<GroupsPage> {
         myGroups = new MyGroups();
     }
 
-    private boolean isLoaded() {
+    public boolean isLoaded() {
         $x(POPULAR_GROUPS_BLOCK_LOCATOR).shouldBe(Condition.visible);
         $x(MY_GROUPS_BLOCK_LOCATOR).shouldBe(Condition.visible);
 

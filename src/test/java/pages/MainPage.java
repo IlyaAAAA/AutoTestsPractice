@@ -13,20 +13,22 @@ public class MainPage extends BasicPage {
     private static final String GROUP_TEXT_LOCATOR = "child::*[@class='tico null']";
     private static final String LEFT_NAVIGATION_BAR_LOCATOR = "//*[@class='nav-side __navigation __user-main']";
 
+    private final SelenideElement name = $x(LEFT_NAVIGATION_BAR_LOCATOR);
+
     public MainPage() {
         super();
     }
 
-//    @Override
-//    protected boolean isLoaded() {
-//        name.shouldBe(Condition.visible);
-//
-//        Assertions.assertTrue(name.exists(), "Main page was not loaded");
-//        return true;
-//    }
+    @Override
+    public boolean isLoaded() {
+        name.shouldBe(Condition.visible);
+
+        Assertions.assertTrue(name.exists(), "Main page was not loaded");
+        return true;
+    }
 
     public GroupsPage openGroups() {
-        $x(LEFT_NAVIGATION_BAR_LOCATOR).shouldBe(Condition.visible);
+        name.shouldBe(Condition.visible);
         $x(NAME_LOCATOR).shouldBe(Condition.visible);
         SelenideElement group = $x(GROUP_LOCATOR).shouldBe(Condition.visible);
 

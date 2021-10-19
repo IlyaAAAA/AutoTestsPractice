@@ -29,4 +29,13 @@ public class AuthorizePage extends BasicPage {
 
         return new MainPage();
     }
+
+    @Override
+    public boolean isLoaded() {
+        loginText.shouldBe(visible);
+        passwordText.shouldBe(visible);
+        loginButton.shouldBe(visible);
+
+        return true;
+    }
 }
