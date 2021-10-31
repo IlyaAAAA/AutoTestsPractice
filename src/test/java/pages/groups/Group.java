@@ -1,9 +1,14 @@
 package pages.groups;
 
 public class Group {
-    public Group(String name) {
-        this.name = name;
-    }
-
     public String name;
+    public String description;
+    public String members;
+    public String avatarUrl;
+
+    public Group(String name, String members, String avatarUrl) {
+        this.name = name;
+        this.members = members;
+        this.avatarUrl = avatarUrl;
+    }
 }

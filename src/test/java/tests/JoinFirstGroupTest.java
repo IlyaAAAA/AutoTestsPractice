@@ -6,7 +6,7 @@ import pages.MainPage;
 import pages.groups.Group;
 import pages.groups.GroupsPage;
 
-public class GroupTest extends BasicTest {
+public class JoinFirstGroupTest extends BasicTest {
 
     @Test
     public void testPage() {
