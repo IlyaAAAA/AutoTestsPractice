@@ -6,8 +6,12 @@ import pages.MainPage;
 import pages.groups.Group;
 import pages.groups.GroupPage;
 import pages.groups.GroupsPage;
+import utils.Bot;
+import utils.PageOpener;
 
 public class JoinGroupAndLeaveItTest extends BasicTest {
+
+    private final Bot bot = new Bot();
 
     @Test
     void test() {
@@ -23,7 +27,12 @@ public class JoinGroupAndLeaveItTest extends BasicTest {
         GroupPage groupPage = groupsPage
                 .getMyGroups()
                 .openGroup(newGroup);
-
         Assertions.assertTrue(groupPage.checkGroup(newGroup));
+
+        groupPage.leave();
+
+        Assertions.assertFalse(PageOpener.openGroups(bot)
+                .getMyGroups()
+                .isInMyGroups(newGroup));
     }
 }

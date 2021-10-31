@@ -19,7 +19,7 @@ public class JoinFirstGroupTest extends BasicTest {
         Assertions.assertTrue(groupsPage
                 .reloadPage()
                 .getMyGroups()
-                .isGroupExist(newGroup)
+                .isInMyGroups(newGroup)
         );
     }
 }

@@ -20,7 +20,7 @@ public class MyGroups {
     }
 
 
-    public boolean isGroupExist(Group group) {
+    public boolean isInMyGroups(Group group) {
         for (SelenideElement myGroup : myGroups) {
             SelenideElement elementGroup = myGroup.$x(GROUP_LOCATOR);
             SelenideElement image = elementGroup.$x(IMAGE_GROUP_LOCATOR);
