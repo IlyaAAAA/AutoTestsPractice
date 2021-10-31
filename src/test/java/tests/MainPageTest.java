@@ -7,7 +7,7 @@ import pages.MainPage;
 public class MainPageTest extends BasicTest {
 
     @Test
-    public void openMainPage() {
+    public void openMainPageTest() {
         Assertions.assertTrue(new MainPage().isLoaded());
     }
 }

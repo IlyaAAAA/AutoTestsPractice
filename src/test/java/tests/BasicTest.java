@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import pages.AuthorizePage;
+import pages.MainPage;
 import utils.Bot;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -19,6 +20,12 @@ public class BasicTest {
 
         AuthorizePage authorizePage = new AuthorizePage(new Bot());
         authorizePage.login();
+    }
+
+    public MainPage openMainPage() {
+        open(MAIN_URL);
+
+        return new MainPage();
     }
 
     @AfterEach

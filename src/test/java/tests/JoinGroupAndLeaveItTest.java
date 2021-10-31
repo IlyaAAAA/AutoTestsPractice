@@ -7,7 +7,6 @@ import pages.groups.Group;
 import pages.groups.GroupPage;
 import pages.groups.GroupsPage;
 import utils.Bot;
-import utils.PageOpener;
 
 public class JoinGroupAndLeaveItTest extends BasicTest {
 
@@ -27,11 +26,13 @@ public class JoinGroupAndLeaveItTest extends BasicTest {
         GroupPage groupPage = groupsPage
                 .getMyGroups()
                 .openGroup(newGroup);
+
         Assertions.assertTrue(groupPage.checkGroup(newGroup));
 
         groupPage.leave();
 
-        Assertions.assertFalse(PageOpener.openGroups(bot)
+        Assertions.assertFalse(openMainPage()
+                .openGroups()
                 .getMyGroups()
                 .isInMyGroups(newGroup));
     }
