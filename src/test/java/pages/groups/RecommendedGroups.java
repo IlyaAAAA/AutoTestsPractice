@@ -7,14 +7,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class RecommendedGroups {
+    private static class ModalWindow {
+        private static final String RECOMMENDED_GROUPS_MODAL_WINDOW_OPEN_BUTTON_LOCATOR =
+                "//*[contains(@class, 'button-pro __sec __small mr-2x')]";
+
+        public static void openGroup() {
+            $x(RECOMMENDED_GROUPS_MODAL_WINDOW_OPEN_BUTTON_LOCATOR).shouldBe(Condition.visible).click();
+        }
+
+    }
+
     Logger logger = LoggerFactory.getLogger(RecommendedGroups.class);
     private static final String RECOMMENDED_GROUPS_LOCATOR = "//*[contains(@class, 'recommended-group')]";
     private static final String RECOMMENDED_GROUP_JOIN_BUTTON_LOCATOR = ".//*[contains(@class, 'group-join_btn') and @data-l='t,join' or text()='Вступить']";
     private static final String RECOMMENDED_GROUP_NAME_LOCATOR = ".//*[contains(@class, 'group-name-link')]";
     private static final String RECOMMENDED_GROUP_MEMBERS_LOCATOR = ".//*[contains(@class, 'friends-in-group_label')]";
     private static final String RECOMMENDED_GROUP_IMAGE_LOCATOR = ".//*[contains(@class, 'photo_img')]";
+    private static final String RECOMMENDED_GROUP_VISIT_LOCATOR = ".//*[contains(@data-l, 't,visit')]";
     private static final String ATTRIBUTE_SRC_IMAGE = "src";
 
     private final ElementsCollection groups;
@@ -35,6 +47,15 @@ public class RecommendedGroups {
 
         joinButton.click();
 
-        return new Group(nameBlock.text(), members, image.getAttribute(ATTRIBUTE_SRC_IMAGE));
+        return new Group(nameBlock.text(), members);
+    }
+
+    public GroupPage openFirstGroup() {
+        SelenideElement firstGroup = groups.get(0);
+
+        firstGroup.$x(RECOMMENDED_GROUP_VISIT_LOCATOR).shouldBe(Condition.visible).click();
+        ModalWindow.openGroup();
+
+        return new GroupPage();
     }
 }

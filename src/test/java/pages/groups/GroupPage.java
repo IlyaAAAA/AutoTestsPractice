@@ -15,6 +15,8 @@ public class GroupPage implements Reloadable<GroupsPage> {
     private static final String GROUP_DROPDOWN_BUTTON_LOCATOR = "//*[contains(@class, 'dropdown_ac button-pro __with-arrow __arrow-svg __sec __wide')]";
     private static final String GROUP_DROPDOWN_LEAVE_BUTTON_LOCATOR = "//*[contains(@class, 'dropdown_n')]";
     private static final String GROUP_ENTER_BUTTON_LOCATOR = "//*[contains(@class, 'button-pro __wide')]";
+    private static final String GROUP_TOGGLE_LOCATOR = "//*[contains(@class, 'toggle-dropdown')]";
+    private static final String GROUP_ADD_TO_BOOKMARK_LOCATOR = "//*[@data-l='t,addBookmarkButton']";
     private static final String GROUP_AVATAR_LOCATOR = "//*[contains(@class, 'group-avatar_img')]";
     private static final String SRC_ATTRIBUTE = "src";
     private static final String IN_GROUP_TEXT = "В группе";
@@ -50,5 +52,19 @@ public class GroupPage implements Reloadable<GroupsPage> {
         String enterText = $x(GROUP_ENTER_BUTTON_LOCATOR).shouldBe(Condition.visible).text();
 
         assertThat(enterText, Matchers.equalToIgnoringCase(ENTER_IN_GROUP_TEXT));
+    }
+
+    public Group getGroup() {
+        String name = $x(GROUP_NAME_LOCATOR).shouldBe(Condition.visible).text();
+
+
+        return new Group(name, "s");
+    }
+
+    public GroupPage addToBookmark() {
+        $x(GROUP_TOGGLE_LOCATOR).shouldBe(Condition.visible).click();
+        $x(GROUP_ADD_TO_BOOKMARK_LOCATOR).shouldBe(Condition.visible).click();
+
+        return this;
     }
 }

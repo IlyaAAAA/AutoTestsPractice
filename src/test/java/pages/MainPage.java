@@ -1,8 +1,10 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
+import pages.bookmarks.BookmarkPage;
 import pages.groups.GroupsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -10,6 +12,8 @@ import static com.codeborne.selenide.Selenide.$x;
 public class MainPage extends BasicPage {
     private static final String NAME_LOCATOR = "//*[@data-l='t,userPage']";
     private static final String GROUP_LOCATOR = "//*[@data-l='t,userAltGroup']";
+    private static final String TOGGLER_LOCATOR = "//*[@data-l='t,toggler']";
+    private static final String BOOKMARK_LOCATOR = "//*[@data-l='t,bookmarks']";
     private static final String GROUP_TEXT_LOCATOR = "child::*[@class='tico null']";
     private static final String LEFT_NAVIGATION_BAR_LOCATOR = "//*[@class='nav-side __navigation __user-main']";
 
@@ -34,5 +38,12 @@ public class MainPage extends BasicPage {
         group.click();
 
         return new GroupsPage();
+    }
+
+    public BookmarkPage openBookmarks() {
+        $x(TOGGLER_LOCATOR).shouldBe(Condition.visible).click();
+        $x(BOOKMARK_LOCATOR).shouldBe(Condition.visible).click();
+
+        return new BookmarkPage();
     }
 }
