@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.notNullValue;
 public class MyGroups {
     private final Logger logger = LoggerFactory.getLogger(MyGroups.class);
 
-    private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_list']";
+    private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_item mr-x']";
     private static final String GROUP_LOCATOR = ".//*[@data-l='t,visit']";
     private static final String IMAGE_GROUP_LOCATOR = ".//*[@class='photo_img']";
     private static final String ATTRIBUTE_WITH_NAME = "alt";
