@@ -16,10 +16,10 @@ public class Feed {
     public boolean isNoteWithTextInFeed(String text) {
         clickFilterNote();
 
-        ElementsCollection notes = $$x(FEED_NOTES_LOCATOR).shouldBe();
+        ElementsCollection notes = $$x(FEED_NOTE_TEXT_LOCATOR).shouldBe();
 
         for (SelenideElement note : notes) {
-            String noteText = note.$x(FEED_NOTE_TEXT_LOCATOR).text();
+            String noteText = note.text();
 
             if (noteText.compareTo(text) == 0) {
                 return true;
