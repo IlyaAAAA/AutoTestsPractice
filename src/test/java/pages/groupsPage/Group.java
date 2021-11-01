@@ -1,4 +1,4 @@
-package pages.groups;
+package pages.groupsPage;
 
 public class Group {
     public String name;

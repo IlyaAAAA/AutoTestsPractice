@@ -1,7 +1,7 @@
 package utils;
 
 import com.codeborne.selenide.Selenide;
-import pages.groups.GroupsPage;
+import pages.groupsPage.GroupsPage;
 
 public class PageOpener {
     private PageOpener() {

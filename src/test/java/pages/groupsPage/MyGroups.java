@@ -1,7 +1,8 @@
-package pages.groups;
+package pages.groupsPage;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import pages.groupPage.GroupPage;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static org.hamcrest.MatcherAssert.assertThat;

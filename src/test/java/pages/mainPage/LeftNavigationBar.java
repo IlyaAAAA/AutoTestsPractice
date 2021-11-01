@@ -1,34 +1,31 @@
-package pages;
+package pages.mainPage;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import pages.bookmarks.BookmarkPage;
-import pages.groups.GroupsPage;
+import pages.groupsPage.GroupsPage;
+import pages.notesPage.NotesPage;
+import pages.profilePage.ProfilePage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class MainPage extends BasicPage {
+public class LeftNavigationBar {
     private static final String NAME_LOCATOR = "//*[@data-l='t,userPage']";
+    //TODO FIIX THIS
+    private static final String NOTES_LOCATOR = "//*[@data-l='t,userStatuses']";
     private static final String GROUP_LOCATOR = "//*[@data-l='t,userAltGroup']";
     private static final String TOGGLER_LOCATOR = "//*[@data-l='t,toggler']";
     private static final String BOOKMARK_LOCATOR = "//*[@data-l='t,bookmarks']";
     private static final String GROUP_TEXT_LOCATOR = "child::*[@class='tico null']";
-    private static final String LEFT_NAVIGATION_BAR_LOCATOR = "//*[@class='nav-side __navigation __user-main']";
 
-    private final SelenideElement name = $x(LEFT_NAVIGATION_BAR_LOCATOR);
-
-    @Override
     public boolean isLoaded() {
-        name.shouldBe(Condition.visible);
+        $x(NAME_LOCATOR).shouldBe(Condition.visible);
 
-        Assertions.assertTrue(name.exists(), "Main page was not loaded");
         return true;
     }
 
     public GroupsPage openGroups() {
-        name.shouldBe(Condition.visible);
         $x(NAME_LOCATOR).shouldBe(Condition.visible);
         SelenideElement group = $x(GROUP_LOCATOR).shouldBe(Condition.visible);
 
@@ -45,5 +42,17 @@ public class MainPage extends BasicPage {
         $x(BOOKMARK_LOCATOR).shouldBe(Condition.visible).click();
 
         return new BookmarkPage();
+    }
+
+    public ProfilePage openProfile() {
+        $x(NAME_LOCATOR).shouldBe(Condition.visible).click();
+
+        return new ProfilePage();
+    }
+
+    public NotesPage openNotes() {
+        $x(NOTES_LOCATOR).shouldBe(Condition.visible).click();
+
+        return new NotesPage();
     }
 }

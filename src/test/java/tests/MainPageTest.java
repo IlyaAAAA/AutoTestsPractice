@@ -2,12 +2,15 @@ package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import pages.mainPage.MainPage;
 
 public class MainPageTest extends BasicTest {
 
     @Test
     public void openMainPageTest() {
-        Assertions.assertTrue(new MainPage().isLoaded());
+        Assertions.assertTrue(new MainPage()
+                .getLeftNavigationBar()
+                .isLoaded()
+        );
     }
 }

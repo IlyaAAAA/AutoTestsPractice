@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.Reloadable;
-import pages.groups.Group;
+import pages.groupsPage.Group;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;

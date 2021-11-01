@@ -2,10 +2,10 @@ package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
-import pages.groups.Group;
-import pages.groups.GroupPage;
-import pages.groups.GroupsPage;
+import pages.groupsPage.Group;
+import pages.groupPage.GroupPage;
+import pages.groupsPage.GroupsPage;
+import pages.mainPage.MainPage;
 import utils.Bot;
 
 public class JoinGroupAndLeaveItTest extends BasicTest {
@@ -15,6 +15,7 @@ public class JoinGroupAndLeaveItTest extends BasicTest {
     @Test
     void test() {
         GroupsPage groupsPage = new MainPage()
+                .getLeftNavigationBar()
                 .openGroups();
 
         Group newGroup = groupsPage
@@ -32,6 +33,7 @@ public class JoinGroupAndLeaveItTest extends BasicTest {
         groupPage.leave();
 
         Assertions.assertFalse(openMainPage()
+                .getLeftNavigationBar()
                 .openGroups()
                 .getMyGroups()
                 .isInMyGroups(newGroup));

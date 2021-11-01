@@ -1,9 +1,11 @@
-package pages.groups;
+package pages.groupPage;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.hamcrest.Matchers;
 import pages.Reloadable;
+import pages.groupsPage.Group;
+import pages.groupsPage.GroupsPage;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static org.hamcrest.MatcherAssert.assertThat;

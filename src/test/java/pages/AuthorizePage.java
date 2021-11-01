@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import pages.mainPage.MainPage;
 import utils.Bot;
 
 import static com.codeborne.selenide.Condition.visible;

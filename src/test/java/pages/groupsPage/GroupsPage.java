@@ -1,4 +1,4 @@
-package pages.groups;
+package pages.groupsPage;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Assertions;

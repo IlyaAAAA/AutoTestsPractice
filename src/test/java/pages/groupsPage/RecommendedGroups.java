@@ -1,10 +1,11 @@
-package pages.groups;
+package pages.groupsPage;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pages.groupPage.GroupPage;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
