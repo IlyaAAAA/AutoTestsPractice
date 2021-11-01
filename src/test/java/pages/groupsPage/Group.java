@@ -2,7 +2,6 @@ package pages.groupsPage;
 
 public class Group {
     public String name;
-    public String description;
     public String members;
 
     public Group(String name, String members) {

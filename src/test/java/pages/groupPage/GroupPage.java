@@ -19,22 +19,13 @@ public class GroupPage implements Reloadable<GroupsPage> {
     private static final String GROUP_ENTER_BUTTON_LOCATOR = "//*[contains(@class, 'button-pro __wide')]";
     private static final String GROUP_TOGGLE_LOCATOR = "//*[contains(@class, 'toggle-dropdown')]";
     private static final String GROUP_ADD_TO_BOOKMARK_LOCATOR = "//*[@data-l='t,addBookmarkButton']";
-    private static final String GROUP_AVATAR_LOCATOR = "//*[contains(@class, 'group-avatar_img')]";
-    private static final String SRC_ATTRIBUTE = "src";
     private static final String IN_GROUP_TEXT = "В группе";
     private static final String ENTER_IN_GROUP_TEXT = "Вступить";
 
 
     public boolean checkGroup(Group newGroup) {
-
         String name = $x(GROUP_NAME_LOCATOR).shouldBe(Condition.visible).text();
-//        String members = $x(RECOMMENDED_GROUPS_LOCATOR).shouldBe(Condition.visible).text();
-//        String avatarUrl = $x(GROUP_AVATAR_LOCATOR).shouldBe(Condition.visible).getAttribute(SRC_ATTRIBUTE);
-
         assertThat(newGroup.name, equalToIgnoringCase(name));
-//        assertThat(newGroup.members, equalToIgnoringCase());
-//        assertThat(avatarUrl, Matchers.notNullValue());
-//        assertThat(newGroup.avatarUrl, equalToIgnoringCase(avatarUrl));
 
         return true;
     }
@@ -58,7 +49,6 @@ public class GroupPage implements Reloadable<GroupsPage> {
 
     public Group getGroup() {
         String name = $x(GROUP_NAME_LOCATOR).shouldBe(Condition.visible).text();
-
 
         return new Group(name, "s");
     }

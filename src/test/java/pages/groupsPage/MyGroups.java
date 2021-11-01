@@ -2,6 +2,8 @@ package pages.groupsPage;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.groupPage.GroupPage;
 
 import static com.codeborne.selenide.Selenide.$$x;
@@ -9,23 +11,23 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class MyGroups {
+    private final Logger logger = LoggerFactory.getLogger(MyGroups.class);
+
     private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_list']";
     private static final String GROUP_LOCATOR = ".//*[@data-l='t,visit']";
     private static final String IMAGE_GROUP_LOCATOR = ".//*[@class='photo_img']";
     private static final String ATTRIBUTE_WITH_NAME = "alt";
 
-    private final ElementsCollection myGroups;
-
-    public MyGroups() {
-        this.myGroups = $$x(MY_GROUPS_LOCATOR).shouldBe();
-    }
-
 
     public boolean isInMyGroups(Group group) {
-        for (SelenideElement myGroup : myGroups) {
+        logger.info("Group to find: " + group.name);
+
+        for (SelenideElement myGroup : getMyGroups()) {
             SelenideElement elementGroup = myGroup.$x(GROUP_LOCATOR);
             SelenideElement image = elementGroup.$x(IMAGE_GROUP_LOCATOR);
             String name = image.attr(ATTRIBUTE_WITH_NAME);
+
+            logger.info("group in loop: " + name);
 
             if (name.compareTo(group.name) == 0) {
                 return true;
@@ -37,21 +39,25 @@ public class MyGroups {
 
     public GroupPage openGroup(Group group) {
 
-        SelenideElement groupToReturn = null;
-        for (SelenideElement myGroup : myGroups) {
+        SelenideElement groupToClick = null;
+        for (SelenideElement myGroup : getMyGroups()) {
             SelenideElement elementGroup = myGroup.$x(GROUP_LOCATOR);
             SelenideElement image = elementGroup.$x(IMAGE_GROUP_LOCATOR);
             String name = image.attr(ATTRIBUTE_WITH_NAME);
 
             if (name.compareTo(group.name) == 0) {
-                groupToReturn = elementGroup;
+                groupToClick = elementGroup;
                 break;
             }
         }
 
-        assertThat(groupToReturn, notNullValue());
+        assertThat(groupToClick, notNullValue());
 
-        groupToReturn.click();
+        groupToClick.click();
         return new GroupPage();
+    }
+
+    private ElementsCollection getMyGroups() {
+        return $$x(MY_GROUPS_LOCATOR);
     }
 }

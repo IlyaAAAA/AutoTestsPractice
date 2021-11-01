@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class NotesPage {
     private static final String NOTES_PAGE_ADD_NOTE_LOCATOR = "//*[contains(@class, 'pf-head_itx')]";
 
-    private NotesModalWindow notesModalWindow = new NotesModalWindow();
+    private final NotesModalWindow notesModalWindow = new NotesModalWindow();
 
     public void addNoteWithText(String text) {
         $x(NOTES_PAGE_ADD_NOTE_LOCATOR).shouldBe(Condition.visible).click();

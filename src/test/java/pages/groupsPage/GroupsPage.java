@@ -1,7 +1,6 @@
 package pages.groupsPage;
 
 import com.codeborne.selenide.Condition;
-import org.junit.jupiter.api.Assertions;
 import pages.BasicPage;
 import pages.Reloadable;
 
@@ -15,8 +14,6 @@ public class GroupsPage extends BasicPage implements Reloadable<GroupsPage> {
     private MyGroups myGroups;
 
     public GroupsPage() {
-        Assertions.assertTrue(isLoaded());
-
         recommendedGroups = new RecommendedGroups();
         myGroups = new MyGroups();
     }
