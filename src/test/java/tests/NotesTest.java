@@ -8,9 +8,6 @@ import java.util.Random;
 public class NotesTest extends BasicTest {
     @Test
     void test() {
-
-        //FIXME
-
         Random random = new Random();
 
         String noteText = "HELLO!!! + " + random.nextInt(1000);

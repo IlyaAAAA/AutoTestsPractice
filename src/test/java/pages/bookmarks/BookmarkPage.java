@@ -24,7 +24,7 @@ public class BookmarkPage implements Reloadable<BookmarkPage> {
     public boolean isGroupInBookmarks(Group group) {
         chooseGroupFromLeftBar();
 
-        ElementsCollection bookmarks = $$x(BOOKMARK_GROUP_LIST).shouldBe();
+        ElementsCollection bookmarks = $$x(BOOKMARK_GROUP_LIST);
 
         for (SelenideElement bookmark : bookmarks) {
             String name = bookmark.$x(BOOKMARK_GROUP_TITLE).text();

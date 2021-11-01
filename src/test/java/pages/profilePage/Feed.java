@@ -9,13 +9,14 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class Feed {
     private static final String FEED_GROUP_FILTER_LOCATOR = "//*[contains(text(), 'Заметки')]";
-    private static final String FEED_NOTE_TEXT_LOCATOR = ".//*[contains(@class, 'media-text_cnt_tx')]";
+    private static final String FEED_NOTE_TEXT_LOCATOR = "//*[contains(@class, 'media-text_cnt_tx')]";
 
 
     public boolean isNoteWithTextInFeed(String text) {
         clickFilterNote();
 
-        ElementsCollection notes = $$x(FEED_NOTE_TEXT_LOCATOR).shouldBe();
+        ElementsCollection notes = $$x(FEED_NOTE_TEXT_LOCATOR);
+        notes.get(0).shouldBe(Condition.visible);
 
         for (SelenideElement note : notes) {
             String noteText = note.text();

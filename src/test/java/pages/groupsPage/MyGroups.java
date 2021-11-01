@@ -14,7 +14,6 @@ public class MyGroups {
     private final Logger logger = LoggerFactory.getLogger(MyGroups.class);
 
     private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_item mr-x']";
-    private static final String GROUP_LOCATOR = ".//*[@data-l='t,visit']";
     private static final String IMAGE_GROUP_LOCATOR = ".//*[@class='photo_img']";
     private static final String ATTRIBUTE_WITH_NAME = "alt";
 
@@ -23,8 +22,7 @@ public class MyGroups {
         logger.info("Group to find: " + group.name);
 
         for (SelenideElement myGroup : getMyGroups()) {
-            SelenideElement elementGroup = myGroup.$x(GROUP_LOCATOR);
-            SelenideElement image = elementGroup.$x(IMAGE_GROUP_LOCATOR);
+            SelenideElement image = myGroup.$x(IMAGE_GROUP_LOCATOR);
             String name = image.attr(ATTRIBUTE_WITH_NAME);
 
             logger.info("group in loop: " + name);
@@ -41,12 +39,11 @@ public class MyGroups {
 
         SelenideElement groupToClick = null;
         for (SelenideElement myGroup : getMyGroups()) {
-            SelenideElement elementGroup = myGroup.$x(GROUP_LOCATOR);
-            SelenideElement image = elementGroup.$x(IMAGE_GROUP_LOCATOR);
+            SelenideElement image = myGroup.$x(IMAGE_GROUP_LOCATOR);
             String name = image.attr(ATTRIBUTE_WITH_NAME);
 
             if (name.compareTo(group.name) == 0) {
-                groupToClick = elementGroup;
+                groupToClick = myGroup;
                 break;
             }
         }

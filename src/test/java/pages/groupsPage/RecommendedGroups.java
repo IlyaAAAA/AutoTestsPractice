@@ -28,13 +28,12 @@ public class RecommendedGroups {
     private static final String RECOMMENDED_GROUP_JOIN_BUTTON_LOCATOR = ".//*[contains(@class, 'group-join_btn') and @data-l='t,join' or text()='Вступить']";
     private static final String RECOMMENDED_GROUP_NAME_LOCATOR = ".//*[contains(@class, 'group-name-link')]";
     private static final String RECOMMENDED_GROUP_MEMBERS_LOCATOR = ".//*[contains(@class, 'friends-in-group_label')]";
-    private static final String RECOMMENDED_GROUP_IMAGE_LOCATOR = ".//*[contains(@class, 'photo_img')]";
     private static final String RECOMMENDED_GROUP_VISIT_LOCATOR = ".//*[contains(@data-l, 't,visit')]";
 
     private final ElementsCollection groups;
 
     public RecommendedGroups() {
-        this.groups = $$x(RECOMMENDED_GROUPS_LOCATOR).shouldBe();
+        this.groups = $$x(RECOMMENDED_GROUPS_LOCATOR);
     }
 
     public Group clickJoinFirstGroup() {
