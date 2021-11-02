@@ -4,16 +4,18 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Feed {
-    private static final String FEED_GROUP_FILTER_LOCATOR = "//*[contains(text(), 'Заметки')]";
+    private static final String FEED_NOTES_LIST = "//*[contains(@class, 'feed-list')]";
+    private static final String FEED_GROUP_FILTER_LOCATOR = "//*[contains(@class, 'filter_i') and contains(text(), 'Заметки')]";
     private static final String FEED_NOTE_TEXT_LOCATOR = "//*[contains(@class, 'media-text_cnt_tx')]";
 
 
     public boolean isNoteWithTextInFeed(String text) {
         clickFilterNote();
+
+        $x(FEED_NOTES_LIST).shouldBe(Condition.visible);
 
         ElementsCollection notes = $$x(FEED_NOTE_TEXT_LOCATOR);
         notes.get(0).shouldBe(Condition.visible);
