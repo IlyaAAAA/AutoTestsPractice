@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class NotesModalWindow {
-    //TODO FIX LOCATOR
+    //Большой локатор, но иначе не ищется div, куда вводится текст
     private static final String NOTES_MODAL_WINDOW_TEXTBOX_LOCATOR = "//*[contains(@class, 'posting_itx emoji-tx h-mod js-ok-e js-posting-itx ok-posting-handler')]";
     private static final String NOTES_MODAL_WINDOW_SUBMIT_BUTTON_LOCATOR = "//*[contains(@class, 'posting_submit')]";
 

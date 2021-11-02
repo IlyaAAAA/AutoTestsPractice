@@ -50,7 +50,7 @@ public class GroupPage implements Reloadable<GroupsPage> {
     public Group getGroup() {
         String name = $x(GROUP_NAME_LOCATOR).shouldBe(Condition.visible).text();
 
-        return new Group(name, "s");
+        return new Group(name);
     }
 
     public GroupPage addToBookmark() {

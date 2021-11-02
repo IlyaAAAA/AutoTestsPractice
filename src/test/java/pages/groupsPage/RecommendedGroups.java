@@ -47,7 +47,7 @@ public class RecommendedGroups {
 
         joinButton.click();
 
-        return new Group(nameBlock.text(), members);
+        return new Group(nameBlock.text());
     }
 
     public GroupPage openFirstGroup() {
