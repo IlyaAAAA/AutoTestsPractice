@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class AuthorizePage {
-
     private static final String LOGIN_INPUT_LOCATOR = "//*[type='text' and @name='st.email' or @id='field_email']";
     private static final String PASSWORD_INPUT_LOCATOR = "//*[@type='password' and @name='st.password' or @id='field_password']";
     private static final String LOGIN_BUTTON_LOCATOR = "//*[contains(@value, 'Войти') and @type='submit']";
