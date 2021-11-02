@@ -35,7 +35,7 @@ public class JoinGroupAndLeaveItTest extends BasicTest {
                 .getMyGroups()
                 .openGroup(newGroup);
 
-        Assertions.assertTrue(groupPage.checkGroup(newGroup));
+        Assertions.assertTrue(groupPage.isGroupEquals(newGroup));
 
         groupPage.leave();
 

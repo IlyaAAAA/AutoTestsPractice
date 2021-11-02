@@ -23,7 +23,7 @@ public class GroupPage implements Reloadable<GroupsPage> {
     private static final String ENTER_IN_GROUP_TEXT = "Вступить";
 
 
-    public boolean checkGroup(Group newGroup) {
+    public boolean isGroupEquals(Group newGroup) {
         String name = $x(GROUP_NAME_LOCATOR).shouldBe(Condition.visible).text();
         assertThat(newGroup.name, equalToIgnoringCase(name));
 

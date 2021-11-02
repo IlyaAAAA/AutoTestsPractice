@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class BookmarkPage implements Reloadable<BookmarkPage> {
     private final Logger logger = LoggerFactory.getLogger(BookmarkPage.class);
 
-    private static final String BOOKMARK_GROUP_LIST = "//*[contains(@class, 'hookBlock bookmarks-card-decorator bookmarks-card-decorator__menu-card-anchor-position bookmarks-menu-user-group-card__margin')]";
+    private static final String BOOKMARK_GROUP_LIST = "//*[contains(@class, 'bookmarks-card-decorator')]";
     private static final String BOOKMARK_GROUP_TITLE = ".//*[contains(@class, 'bookmarks-menu-group-card__title')]";
     private static final String BOOKMARKS_LEFT_BAR_LOCATOR = "//*[contains(@class, 'nav-side')]";
     private static final String BOOKMARKS_LEFT_BAR_GROUP_LOCATOR = ".//*[contains(text(), 'Группы')]";

@@ -13,7 +13,7 @@ public class LeftNavigationBar {
     private static final String NOTES_LOCATOR = "//*[contains(text(), 'Заметки')]";
     private static final String GROUP_LOCATOR = "//*[contains(text(), 'Группы')]";
     private static final String BOOKMARK_LOCATOR = "//*[contains(text(), 'Закладки')]";
-    private static final String TOGGLER_LOCATOR = "//*[@data-l='t,toggler']";
+    private static final String TOGGLER_LOCATOR = "//*[contains(@class, 'nav-side_toggler')]";
 
     public boolean isLoaded() {
         $x(NAME_LOCATOR).shouldBe(Condition.visible);

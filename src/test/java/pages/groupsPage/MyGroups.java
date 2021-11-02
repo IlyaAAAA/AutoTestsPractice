@@ -18,8 +18,6 @@ public class MyGroups {
     private static final String MY_GROUPS_LOCATOR = "//*[@class='scroll-slider_item mr-x']";
     private static final String MY_GROUPS_NUMBER_LOCATOR = "//*[@class='portlet_h_count']";
     private static final String MY_LIST_GROUPS_LOCATOR = "//*[@class='scroll-slider_list']";
-    private static final String IMAGE_GROUP_LOCATOR = ".//*[@class='photo_img']";
-    private static final String ATTRIBUTE_WITH_NAME = "alt";
     private static final String HOVER_GROUP_NAME = "//*[contains(@class, 'entity-shortcut-menu_name')]";
 
 
